@@ -12,12 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "nexe": "^4.0.0-beta.19",
     "node-fetch": "^2.6.5",
-    "pkg": "^5.4.1",
     "tippy.js": "^6.3.7",
     "url": "^0.11.0"
   }

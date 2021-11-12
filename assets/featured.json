@@ -1,0 +1,41 @@
+{
+  "featured": [
+    {
+      "_id": "602441eebfce0388b093e2d8",
+      "is_movie": false,
+      "title": "Money Heist (La casa de papel)",
+      "story": "لتنفيذ أكبر عملية سرقة في التاريخ ، قام رجل غامض يدعى البروفيسور بتجنيد مجموعة من ثمانية لصوص لديهم خاصية واحدة: ليس لدى أي منهم أي شيء يخسره. خمسة أشهر من العزلة - حفظ كل خطوة ، كل التفاصيل ، كل الاحتمالات - تتوج في أحد عشر يومًا مغلقًا في المصنع الوطني للعملات المعدنية والطوابع في إسبانيا ، محاطًا بقوات الشرطة وعشرات الرهائن تحت سيطرتهم ، لمعرفة ما إذا كان انتحارهم الرهان سيؤدي إلى كل شيء أو لا شيء.",
+      "img": "https://img.timemovies.net/t/p/602441eebfce0388b093e2d8_190_285_.jpg",
+      "poster": "https://img.timemovies.net/t/p/602441eebfce0388b093e2d8_255_340_.jpg",
+      "backdrop_img": "",
+      "title_img": "https://img.timemovies.net/t/p/602441eebfce0388b093e2d8_title_.png",
+      "feature_img": "https://img.timemovies.net/t/p/602441eebfce0388b093e2d8_feature_.jpg",
+      "rating": 8.3,
+      "content_rate": "+18 للكبار فقط",
+      "genres": ["اكشن", "غموض", "اثارة", "جريمة"],
+      "str": null,
+      "down": null,
+      "release_year": 2017,
+      "length": 70
+    },
+    {
+      "_id": "6128358a87caa9b8e9f81898",
+      "is_movie": true,
+      "file_code": "6BNQubiwkLyv",
+      "title": "Don't Breathe 2",
+      "story": "بعد مرور العديد من السنوات، يختبئ نورمان نوردستورم في كوخ رفقة فتاة يتيمة نجت من حريق منزلها، وحينما تأتي عصابة وتختطف الفتاة، يصبح على الرجل الضرير ترك ملاذه الآمن لإنقاذ الفتاة.",
+      "img": "https://img.timemovies.net/t/p/6128358a87caa9b8e9f81898_190_285_.jpg",
+      "poster": "https://img.timemovies.net/t/p/6128358a87caa9b8e9f81898_255_340_.jpg",
+      "backdrop_img": "https://img.timemovies.net/t/p/6128358a87caa9b8e9f81898_backdrop_.jpg",
+      "title_img": "https://img.timemovies.net/t/p/6128358a87caa9b8e9f81898_title_.png",
+      "feature_img": "https://img.timemovies.net/t/p/6128358a87caa9b8e9f81898_feature_.jpg",
+      "rating": 7.3,
+      "content_rate": "للكبار فقط, يحتوى على مشاهد فاضحة او عنيفة",
+      "genres": ["اثارة", "رعب"],
+      "str": "https://vidboom.cloud/m/app/6BNQubiwkLyv",
+      "down": "https://vidboom.cloud/d/6BNQubiwkLyv",
+      "release_year": 2021,
+      "length": 98
+    }
+  ]
+}

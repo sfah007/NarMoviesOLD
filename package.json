@@ -1,0 +1,24 @@
+{
+  "name": "movies-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "nexe": "^4.0.0-beta.19",
+    "node-fetch": "^2.6.5",
+    "pkg": "^5.4.1",
+    "tippy.js": "^6.3.7",
+    "url": "^0.11.0"
+  }
+}

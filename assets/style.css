@@ -1,6 +1,5 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --color-shadow-dark: 1, 6, 20;
 }
@@ -48,12 +47,12 @@ body::-webkit-scrollbar-track {
 
 #featured {
   width: 100%;
-  height: 520px;
+  height: 600px;
   background-size: cover;
   background-position: center;
 }
 
-#featured .shadow {
+#featured .fshadow {
   background: linear-gradient(
     0deg,
     rgba(var(--color-shadow-dark), 0.5) 40%,
@@ -68,6 +67,7 @@ body::-webkit-scrollbar-track {
   width: 100%;
   grid-template-columns: 300px auto 250px;
   background-color: #0003;
+  
 }
 
 #header img {
@@ -85,7 +85,7 @@ body::-webkit-scrollbar-track {
 #header ul li a {
   display: block;
   text-decoration: none;
-  color: azure;
+  color: #F0F0FF;
   font-size: 16px;
   font-weight: 900;
   font-family: "kufi";
@@ -96,6 +96,7 @@ body::-webkit-scrollbar-track {
 #header ul li a:hover {
   color: #cd1c3b;
   transform: translateY(-4px);
+  text-shadow: rgba(255,255,255,1) 0px 0px 67px;
 }
 
 #search-bar {
@@ -116,9 +117,10 @@ body::-webkit-scrollbar-track {
   font-family: "kufi";
   font-weight: 900;
 }
-#search-bar img{
-transition: transform 0.3s;}
-#search-bar img:hover{
+#search-bar img {
+  transition: transform 0.3s;
+}
+#search-bar img:hover {
   transform: translateX(5px);
 }
 
@@ -155,7 +157,7 @@ input::-moz-placeholder {
 
 #featured-movie {
   width: 100%;
-  height: 450px;
+  height: 530px;
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(0, 0, 0, 0.2);
@@ -167,6 +169,7 @@ input::-moz-placeholder {
   height: 430px;
   margin: auto;
   padding-left: 80px;
+  padding-top: 30px;
 }
 .featured-movie-poster {
   width: 270px;
@@ -185,7 +188,7 @@ input::-moz-placeholder {
   margin: 50px 0px 20px 20px;
 }
 #featured-movie .container .featured-movie-info .title {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 40px;
   font-weight: 700;
   color: white;
@@ -197,9 +200,9 @@ input::-moz-placeholder {
 }
 #featured-movie .container .featured-movie-info .r-g-d {
   display: grid;
-  grid-template-areas: 
-                      "r d"
-                      "g g";
+  grid-template-areas:
+    "r d"
+    "g g";
   width: fit-content;
   font-family: "kufi";
   font-size: 12px;
@@ -213,17 +216,16 @@ input::-moz-placeholder {
   margin: auto 0 auto 0;
   grid-area: g;
 }
-#featured-movie .container .featured-movie-info .r-g-d .genres ul li{
+#featured-movie .container .featured-movie-info .r-g-d .genres ul li {
   display: inline;
   padding: 0 15px;
   background-color: #cd1c3b;
-  
+
   text-align: center;
- 
 }
-#featured-movie .container .featured-movie-info .r-g-d .genres ul li a{
+#featured-movie .container .featured-movie-info .r-g-d .genres ul li a {
   text-decoration: none;
-  color: azure;
+  color: #F0F0FF;
 }
 #featured-movie .container .featured-movie-info .r-g-d .rating {
   font-family: "Poppins";
@@ -250,19 +252,18 @@ input::-moz-placeholder {
 #featured-movie .container .featured-movie-info .r-g-d .duration img {
   height: 45px;
   margin: auto 0 auto 0;
-  filter: invert(15%) sepia(88%) saturate(3024%) hue-rotate(336deg) brightness(106%) contrast(96%);
+  filter: invert(15%) sepia(88%) saturate(3024%) hue-rotate(336deg)
+    brightness(106%) contrast(96%);
 }
-
 
 #featured-movie .container .featured-movie-info .story-header {
   font-family: "kufi";
-  color: azure;
+  color: #F0F0FF;
   font-size: 17px;
   width: 480px;
   text-align: right;
   font-weight: 700;
   margin: auto 0 auto 0;
-  
 }
 #featured-movie .container .featured-movie-info .story-text {
   font-family: "kufi";
@@ -328,19 +329,29 @@ input::-moz-placeholder {
   font-size: 16px;
   font-weight: 600;
   color: rgb(237, 237, 237);
-  transition: transform 0.3s, color 0.3s;
+  transition: transform 0.4s, color 0.3s;
+  background-color: #f0f0ff;
+  color: #111426;
 }
-
+#sub-body .genres a {
+  padding-left: 5px;
+  text-decoration: none;
+}
 #sub-body .genres .genre:hover {
   color: #cd1c3b;
   transform: translateY(-5px);
+  -webkit-box-shadow:0px 0px 69px 1px rgba(205,28,61,1);
+-moz-box-shadow: 0px 0px 69px 1px rgba(205,28,61,1);
+box-shadow: 0px 0px 69px 1px rgba(205,28,61,1);
+
 }
 
 #sub-body .genres .genres-header {
-  color: #e8e8e8;
   text-align: right;
   transition: transform 0.3s;
   text-decoration: none;
+  background-color: #f0f0ff;
+  color: #111426;
 }
 
 #sub-body .genres .genres-header:hover {
@@ -414,7 +425,7 @@ input::-moz-placeholder {
   width: 100%;
   height: 30px;
   color: aliceblue;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 700;
 }
 
@@ -495,7 +506,7 @@ input::-moz-placeholder {
   width: 100%;
   height: 30px;
   color: aliceblue;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 900;
 }
 
@@ -538,7 +549,7 @@ input::-moz-placeholder {
   height: 45px;
   border-radius: 25px;
   transform: translateX(30px);
-  background-color: azure;
+  background-color: #F0F0FF;
 }
 .right-scroller img {
   margin: 7px 5px 5px 5px;
@@ -554,7 +565,7 @@ input::-moz-placeholder {
   height: 45px;
   border-radius: 25px;
   transform: translateX(-30px);
-  background-color: azure;
+  background-color: #F0F0FF;
 }
 .left-scroller img {
   margin: 8px 8px 5px 5px;
@@ -576,12 +587,11 @@ input::-moz-placeholder {
 #featured-serie {
   width: 100vw;
   height: 430px;
-  margin-left: calc(-100vw / 2 + 1300px/ 2);
-  margin-right: calc(-100vw / 2 + 1300px/ 2);
+  margin-left: calc(-100vw / 2 + 1300px / 2);
+  margin-right: calc(-100vw / 2 + 1300px / 2);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 #featured-serie .container {
   display: grid;
@@ -653,7 +663,7 @@ input::-moz-placeholder {
 
 #featured-serie .container .featured-serie-info .story-header {
   font-family: "kufi";
-  color: azure;
+  color: #F0F0FF;
   font-size: 17px;
   width: 580px;
   text-align: right;
@@ -692,6 +702,9 @@ input::-moz-placeholder {
 
 #featured-serie .container .featured-serie-info .buttons button:hover {
   transform: translateY(-5px);
+  -webkit-box-shadow:0px 0px 69px 1px rgba(205,28,61,1);
+-moz-box-shadow: 0px 0px 69px 1px rgba(205,28,61,1);
+box-shadow: 0px 0px 69px 1px rgba(205,28,61,1);
 }
 
 #footer {
@@ -700,8 +713,8 @@ input::-moz-placeholder {
   line-height: 25px;
   text-align: center;
   background-color: #f0f0ff;
-  color: #110f17 ;
-  font-family: 'Poppins';
+  color: #110f17;
+  font-family: "Poppins";
   font-weight: 600;
 }
 #footer div {
@@ -709,13 +722,16 @@ input::-moz-placeholder {
 }
 
 .slider-header {
-  width: 100%;
-  height: 30px;
+  padding: 0 10px;
+  line-height: 40px;
+  background-color: #F0F0FF;
+  width: fit-content;
+  height: 40px;
+  float: right;
   font-size: 22px;
-  line-height: 30px;
   text-align: right;
-  color: azure ;
-  font-family: 'kufi';
+  color: black;
+  font-family: "kufi";
   font-weight: 600;
   margin: 10px 0;
 }
@@ -725,8 +741,7 @@ input::-moz-placeholder {
   background-color: #f0f0ff;
 }
 
-  
-.movie .qual{
+.movie .qual {
   position: absolute;
   z-index: 54;
   background-color: rgb(255, 225, 0);
@@ -738,11 +753,10 @@ input::-moz-placeholder {
   margin: 5px;
 }
 
-.movie .shadow .movie-genres{
-  color: azure;
+.movie .shadow .movie-genres {
+  color: #F0F0FF;
   font-family: "kufi";
   font-weight: 900;
   margin-top: 60px;
   font-size: 12px;
 }
-

@@ -4,20 +4,20 @@
 
 .tippy-box[data-theme~="light-arabic"] {
   color: rgb(24, 24, 24);
-  background-color: azure;
+  background-color: #F0F0FF;
   font-family: "kufi";
   font-weight: 900;
   text-align: center;
  }
  .tippy-box[data-theme~='light-arabic'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: azure;
+  border-top-color: #F0F0FF;
 }
 .tippy-box[data-theme~='light-arabic'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: azure;
+  border-bottom-color: #F0F0FF;
 }
 .tippy-box[data-theme~='light-arabic'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: azure;
+  border-left-color: #F0F0FF;
 }
 .tippy-box[data-theme~='light-arabic'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: azure;
+  border-right-color: #F0F0FF;
 }

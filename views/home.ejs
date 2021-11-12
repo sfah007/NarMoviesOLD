@@ -14,7 +14,7 @@
 <body>
   <%featuredImage1 = featured[0]["feature_img"]%>
   <div id="featured" style="background-image: url(<%=featuredImage1%>);">
-    <div class="shadow">
+    <div class="fshadow">
       <div id="header">
         <div id="search-bar">
           <img id="search-btn" src="/assets/icons/magnifying-glass.png" onclick="Search()"/>
@@ -61,7 +61,9 @@
      
     </div>
   </div>
+
   <div id="sub-body">
+    
     <div class="genres">
       <a href="/movies-list?genre=خيال علمي">
         <div class="genre">خيال علمي</div>
@@ -266,7 +268,7 @@
         </div>
 
         <div class="info">
-          <div class="title">b
+          <div class="title">
             <%= data["movies-action"][i]["title"] %> %>
           </div>
           <div class="year-duration">

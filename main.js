@@ -3,9 +3,10 @@ const fetch = require("node-fetch");
 const url = require("url");
 
 const fs = require("fs");
-let featured = JSON.parse(fs.readFileSync("assets/featured.json/"));
-let movies = JSON.parse(fs.readFileSync("Databases/EgybestAllMovies.json/"));
-let series = JSON.parse(fs.readFileSync("Databases/EgybestAllSeries.json/"));
+
+let featured = JSON.parse(fs.readFileSync("assets/featured.json"));
+let movies = JSON.parse(fs.readFileSync("Databases/EgybestAllMovies.json"));
+let series = JSON.parse(fs.readFileSync("Databases/EgybestAllSeries.json"));
 
 var app = express(); 
 app.set("view engine", "ejs");
@@ -229,5 +230,5 @@ app.get("*", function (req, res) {
   return res.send("404", 404);
 });
 
-const port = 3000;
+const port = 8080;
 app.listen(port);

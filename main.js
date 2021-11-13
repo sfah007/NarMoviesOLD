@@ -3,9 +3,9 @@ const fetch = require("node-fetch");
 const url = require("url");
 
 const fs = require("fs");
-let featured = JSON.parse(fs.readFileSync("assets/featured.json"));
-let movies = JSON.parse(fs.readFileSync("Databases/EgybestAllMovies.json"));
-let series = JSON.parse(fs.readFileSync("Databases/EgybestAllSeries.json"));
+let featured = JSON.parse(fs.readFileSync("assets/featured.json/"));
+let movies = JSON.parse(fs.readFileSync("Databases/EgybestAllMovies.json/"));
+let series = JSON.parse(fs.readFileSync("Databases/EgybestAllSeries.json/"));
 
 var app = express(); 
 app.set("view engine", "ejs");

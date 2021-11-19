@@ -7,6 +7,7 @@
   <title>NarMovies</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/assets/icons/fire.png">
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="/assets/css/tippy.css">
 </head>
@@ -38,11 +39,18 @@
             <div class="title"><%= featured[0]["title"] %><small><%= featured[0]["release_date"] %></small></div>
             <div class="r-g-d">
               <div class="rating">
-                <%= featured[0]["rating"] %>
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" />
+                <img src="/assets/icons/imdb.svg" />
+                <%= featured[0]["rating"] %><span>/10</span>
+                
               </div>
-              <div class="genres"><%= featured[0]["genres"].join(" - ") %></div>
-              <div class="duration">• <%= featured[0]["length"] %> Min</div>
+              <div class="genres">
+                <ul>
+                  <% for (var i = 0; i < featured[0]["genres"].length ; i++) { %>
+                  <li><a href="/movies-list?genre=<%= featured[0]["genres"][i] %>"><%= featured[0]["genres"][i] %></a></li> 
+                  <% } %> 
+              </ul>
+              </div>
+              <div class="duration"><%= featured[0]["length"] %><span>Min</span></div>
             </div>
             <div class="story">
               <div class="story-header">: القصة</div>
@@ -54,6 +62,9 @@
               <a href="/movie/602441eebfce0388b093e2d8">
                 <button class="play-btn" type="button">شاهد الأن</button>
               </a>
+              <a href="/movie/602441eebfce0388b093e2d8">
+                <button class="play-btn" type="button" style="background-color: #17C48A;">الإعلان</button>
+              </a>
             </div>
           </div>
         </div>
@@ -63,7 +74,6 @@
   </div>
 
   <div id="sub-body">
-    
     <div class="genres">
       <a href="/movies-list?genre=خيال علمي">
         <div class="genre">خيال علمي</div>
@@ -104,39 +114,76 @@
       <a href="/movies-list">
         <div class="genre">الكل</div>
       </a>
-      <a href="#">
-        <div class="genres-header">اخر الأفلام</div>
-      </a>
     </div>
+    <div class="slider-header">اخر الأفلام</div>
+
+
+    <div class="movie-banner" style="background-image:url('https://www.themoviedb.org/t/p/original/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg')">
+      <div class="bshadow">
+        <div class="logo">
+          <img src="https://www.themoviedb.org/t/p/original/A0BhEke9hapLDfjLIjzoM7GdpPH.png" alt="">
+        </div>
+        <div class="info">
+          <a href="#">
+            <button>شاهد الأن</button>
+          </a>
+          <a href="#">
+            <button style="background-color: rgb(23, 196, 138);">المزيد</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
     <div id="movies-slider" class="movies-slider">
       <div class="m right-scroller scroller" onclick="Right(this);">
         <img src="/assets/icons/move-to-next (1).png">
       </div>
+      
+      <% for (var i = 0; i < data["movies-latest"].length ; i++) { %>
+        <div class="movie" style="background-image:url('<%= data["movies-latest"][i]["poster"] %>')">
+          <div class="qual"><%= data["movies-latest"][i]["ribbon"] %></div>
+          <div class="shadow" data-tippy-content="<%= data["movies-latest"][i]["genres"].join(' - ')%>">
+            <a href="<%= "/movie/" + data["movies-latest"][i]["_id"]  %>">
+              <img src="/assets/icons/play.png" />
+            </a>
+          </div>
+  
+          <div class="info">
+            <div class="title">
+              <%= data["movies-latest"][i]["title"] %>
+            </div>
+            <div class="year-duration">
+              <%= data["movies-latest"][i]["length"] %>Min/ <%= data["movies-latest"][i]["release_year"] %>
+            </div>
+          </div>
+        </div>
+        <% } %>
       <div class="m left-scroller scroller" onclick="Left(this);">
         <img src="/assets/icons/move-to-next (1).png">
       </div>
 
-      <% for (var i = 0; i < data["movies-latest"].length ; i++) { %>
-      <div class="movie" style="background-image:url('<%= data["movies-latest"][i]["poster"] %>')">
-        <div class="qual"><%= data["movies-latest"][i]["ribbon"] %></div>
-        <div class="shadow" data-tippy-content="<%= data["movies-latest"][i]["genres"].join(' - ')%>">
-          <a href="<%= "/movie/" + data["movies-latest"][i]["_id"]  %>">
-            <img src="/assets/icons/play.png" />
+    </div>
+
+
+    <div class="slider-header">افلام أكشن</div>
+    <div class="movie-banner" style="background-image:url('https://www.themoviedb.org/t/p/original/zMrk2G3XsnfYKiIp1NEfdtvDyBH.jpg')">
+      <div class="bshadow">
+        <div class="logo">
+          <img src="https://www.themoviedb.org/t/p/original/4BQ4XJAWAweiIoZU0fYUOSNG9SV.png" alt="">
+        </div>
+        <div class="info">
+          <a href="#">
+            <button>شاهد الأن</button>
+          </a>
+          <a href="#">
+            <button style="background-color: rgb(23, 196, 138);">المزيد</button>
           </a>
         </div>
-
-        <div class="info">
-          <div class="title">
-            <%= data["movies-latest"][i]["title"] %>
-          </div>
-          <div class="year-duration">
-            <%= data["movies-latest"][i]["length"] %>Min/ <%= data["movies-latest"][i]["release_year"] %>
-          </div>
-        </div>
       </div>
-      <% } %>
     </div>
-    <div class="slider-header">افلام أكشن</div>
+
+
     <div id="movies-slider" class="movies-slider">
       <div class="m right-scroller scroller" onclick="Right(this);">
         <img src="/assets/icons/move-to-next (1).png">
@@ -233,7 +280,7 @@
           <div class="r-g-d">
             <div class="rating">
               <%=featured[1]["rating"]%>
-              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" />
+              <img src="/assets/icons/star.svg" />
             </div>
             <div class="mgenres"><%=featured[1]["genres"].slice(0 , 3).join(" - ")%></div>
             <div class="duration">• <%=featured[1]["length"]%> Min</div>

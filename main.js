@@ -5,7 +5,7 @@ const url = require("url");
 const fs = require("fs");
 
 let featured = JSON.parse(fs.readFileSync("assets/featured.json"));
-let movies = JSON.parse(fs.readFileSync("Databases/EgybestAllMovies.json"));
+let movies = JSON.parse(fs.readFileSync("Databases/EgybestAllMoviesV3.2.json"));
 let series = JSON.parse(fs.readFileSync("Databases/EgybestAllSeries.json"));
 
 var app = express(); 

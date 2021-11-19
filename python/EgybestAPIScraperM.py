@@ -7,11 +7,11 @@ from requests.adapters import HTTPAdapter
 from tqdm import tqdm
 
 
-url = "https://api.timemovies.net/api/v2.6/app/works/cat"
+url = "https://api.timemovies.net/api/v3.2/app/works/cat"
 
 headers = {
-  'x-t': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNjZmU4ZTA5ZTBiMjljNjA5NjZmMGYiLCJuYW1lIjoiMU9UUyDigKIgVGhlIFNhdmFnZXMiLCJlbWFpbCI6Iml0c3pldXN4MDQyQGdtYWlsLmNvbSIsImRsIjoiZW4iLCJhbCI6ImVuIiwiaWRzIjpmYWxzZSwiaWF0IjoxNjMyNTg4OTY5LCJleHAiOjE2MzMxOTM3Njl9.4TzVb5D65QWjYT5kS7s6fksq_XbuYKNJWHg4uRTvDPM',
-  'ai': '602b1b13d7a19a2d6786544d',
+  'x-t': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUwOGZlYTA5ZTBiMjljNjA0ZGUzNTQiLCJuYW1lIjoiMU9UUyDigKIgVGhlIFNhdmFnZXMiLCJlbWFpbCI6Iml0c3pldXN4MDQyQGdtYWlsLmNvbSIsImRsIjoiYXIiLCJhbCI6ImFyIiwiaWRzIjpmYWxzZSwic3FsIjoiMjQwcCIsImRxbCI6IjI0MHAiLCJpc192aXAiOmZhbHNlLCJ2aXBfdG8iOm51bGwsInZpcF9wbGFuIjpudWxsLCJpc19nb29nbGVfcGxheSI6dHJ1ZSwiaXNfcmVxdWVzdCI6dHJ1ZSwiaXNfc3RyZWFtIjp0cnVlLCJpc19kb3dubG9hZCI6dHJ1ZSwiaXNfc3VzcGVuZGVkIjpmYWxzZSwiaXNfc2V0dGluZyI6dHJ1ZSwiaXNfbmV3cyI6ZmFsc2UsImlhdCI6MTYzNjc1NDc5NCwiZXhwIjoxNjM3MzU5NTk0fQ.nKGCT2pZ8C7SbWsUEjMrEvYzcNu39WVU1m6xqo7b1Ro',
+  'ai': '60129f949ea4ea03d6598c06',
   'Content-Type': 'application/json'
 }
 rqsts = []
@@ -26,14 +26,23 @@ for pageIndex in range(173) :
     payload = json.dumps({
   "cat": {
     "_id": "2a2c349d-d11c-4656-96fd-4c8505c42981",
-    "name": "افلام مضافة حديثا",
+    "search_prop": "publish_date",
     "is_movie": True,
+    "is_tag": False,
+    "mode": None,
     "cat": "publish_date",
     "dir": -1,
     "is_history": False,
-    "is_tag": False
+    "is_more": True,
+    "title": {
+      "ar": "افلام مضافة حديثا",
+      "en": "Recently Added Movies",
+      "fr": "Films récemment ajoutés",
+      "sp": "Películas agregadas recientemente"
+    },
+    "name": "افلام مضافة حديثا"
   },
-  "page": pageIndex,
+  "page": 0,
   "size": 15
 })
     rqsts.append(grequests.post(url , headers=headers , data=payload , session=s))
@@ -41,5 +50,5 @@ results = grequests.map(rqsts)
 for response in results :
         final += response.json()
 
-with open("EgybestAllMoviesEN.json" , "w" , encoding="utf-8") as f :
+with open("EgybestAllMoviesENNEWX.json" , "w" , encoding="utf-8") as f :
     json.dump(final , f ,ensure_ascii=False)

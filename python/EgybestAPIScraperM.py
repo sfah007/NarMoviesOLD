@@ -22,7 +22,7 @@ retries = Retry(total=10, backoff_factor=0.2, status_forcelist=[
 s.mount('http://', HTTPAdapter(max_retries=retries))
 s.mount('https://', HTTPAdapter(max_retries=retries))
 
-for pageIndex in range(173) :
+for pageIndex in range(250) :
     payload = json.dumps({
   "cat": {
     "_id": "2a2c349d-d11c-4656-96fd-4c8505c42981",
@@ -42,7 +42,7 @@ for pageIndex in range(173) :
     },
     "name": "افلام مضافة حديثا"
   },
-  "page": 0,
+  "page": pageIndex,
   "size": 15
 })
     rqsts.append(grequests.post(url , headers=headers , data=payload , session=s))

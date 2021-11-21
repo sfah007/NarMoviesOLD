@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>NarMovies</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/movie.css" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/1.8.2/plyr.css">
+  </head>
+  <body>
+    <div id="featured" style="background-image: url(<%= "https://image.tmdb.org/t/p/original/" + backdrop   %>);">
+        <div class="shadow">
+          <div id="header">
+            <div id="search-bar">
+              <img id="search-btn" src="/assets/icons/magnifying-glass.png" onclick="Search()"/>
+              <input type="text" id="search-input" required placeholder="بحث سريع" size="10" onfocus="this.placeholder = ''";
+                            this.value = ''" />
+            </div>
+            <ul>
+              <li><a href="">مسلسلات</a></li>
+              <li><a href="/home">الرئيسية</a></li>
+              <li><a href="">أفلام</a></li>
+              
+            </ul>
+            <img class="logo" src="/assets/icons/WHiteLogo.png" alt="" />
+          </div>
+  
+          <div id="featured-movie">
+            <div class="container">
+              <div class="featured-movie-poster">
+                <img
+                  src="<%= movie["poster"] %>"
+                />
+              </div>
+              <div class="featured-movie-info">
+                <div class="title"><%= movie["title"]["en"] %><small><%= movie["release_year"] %></small></div>
+                <div class="r-g-d">
+                  <div class="rating">
+                    <%= movie["rating"] %>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/64/1828/1828884.png"
+                    />
+                  </div>
+                  <div class="duration">• <%= movie["length"] %> Min
+                    <img
+                    src="https://cdn-icons-png.flaticon.com/64/66/66163.png"
+                  />
+                </div>
+                  <div class="genres">
+                    <ul>
+                    <% for (var i = 0; i < movie["genres"]["en"].length ; i++) { %>
+                      <li><a href=<%= "/movies-list?genre=" + movie["genres"][i]%>><%= movie["genres"]["ar"][i]%></a></li>
+                    <%}%>
+                  </ul>
+                  </div>
+                  
+                </div>
+                <div class="story">
+                  <div class="story-header">: القصة</div>
+                  <div class="story-text">
+                    <%= movie["story"]["ar"] %>
+                  </div>
+                </div>
+                <div class="buttons">
+                  <button class="play-btn" type="button">شاهد الأن</button>
+             
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <div id="sub-body">
+          <div id="video-container">
+              <video preload="metadata" id="player" controls crossorigin  poster="<%= "https://image.tmdb.org/t/p/original/" + backdrop   %>"></video>
+          </div>
+          <div id="qualities">
+              <% for (const [key, value] of Object.entries(streams)) { %>
+                <div class="qlt" , onclick="switcher(this.children[0].innerHTML)">
+                  <%= key%>
+                  <div class="str"><%= value%></div>
+                </div> 
+              <% }%>
+          </div>
+          <div id="movies-slider" class="movies-slider">
+            <div class="m right-scroller scroller" onclick="Right(this);">
+              <img src="/assets/icons/move-to-next (1).png">
+            </div>
+            <div class="m left-scroller scroller" onclick="Left(this);">
+              <img src="/assets/icons/move-to-next (1).png">
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/614db094df0fd862f970e76e_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/614db094df0fd862f970e76e">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Sex Is Zero 
+                </div>
+                <div class="year-duration">
+                    96 Min/2002 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/614dc8eb1e26ea5f3380f266_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/614dc8eb1e26ea5f3380f266">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Starling 
+                </div>
+                <div class="year-duration">
+                    103 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/61495b26f3f00ef0c0fdd84a_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/61495b26f3f00ef0c0fdd84a">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Ride the Eagle 
+                </div>
+                <div class="year-duration">
+                    89 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/60da5b7542788a12548f0cb4_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/60da5b7542788a12548f0cb4">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Edge of the World 
+                </div>
+                <div class="year-duration">
+                    104 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/6148a481728296ec225753dd_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/6148a481728296ec225753dd">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Card Counter 
+                </div>
+                <div class="year-duration">
+                    111 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/61462337de9437ca96e1cb60_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/61462337de9437ca96e1cb60">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    My Salinger Year 
+                </div>
+                <div class="year-duration">
+                    101 Min/2020 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/6145a95274ae0ad0212c5d33_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/6145a95274ae0ad0212c5d33">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Cry Macho 
+                </div>
+                <div class="year-duration">
+                    104 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/6021f35efabdebf2be76b7cd_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/6021f35efabdebf2be76b7cd">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Day the Earth Stood Still 
+                </div>
+                <div class="year-duration">
+                    104 Min/2008 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/614458e274ae0ad0212c569e_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/614458e274ae0ad0212c569e">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Taipei Suicide Story 
+                </div>
+                <div class="year-duration">
+                    45 Min/2020 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/6144b89b5335fecd72591df1_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/6144b89b5335fecd72591df1">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Infiltrator 
+                </div>
+                <div class="year-duration">
+                    127 Min/2016 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/614445366448a6ca9099f65a_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/614445366448a6ca9099f65a">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    I Carry You with Me 
+                </div>
+                <div class="year-duration">
+                    111 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/61437f999760cbcc7c21614c_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/61437f999760cbcc7c21614c">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Guilty 
+                </div>
+                <div class="year-duration">
+                    90 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/61408da269729ed028a713cb_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/61408da269729ed028a713cb">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Another Girl 
+                </div>
+                <div class="year-duration">
+                    95 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/613f91d4127babcf36b36b96_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/613f91d4127babcf36b36b96">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Bad Batch 
+                </div>
+                <div class="year-duration">
+                    119 Min/2017 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/6021ec75fabdebf2be766a96_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/6021ec75fabdebf2be766a96">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    A Few Good Men 
+                </div>
+                <div class="year-duration">
+                    138 Min/1992 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/613ece5169729ed028a70c7d_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/613ece5169729ed028a70c7d">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Power of the Dog 
+                </div>
+                <div class="year-duration">
+                    127 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/61408cbc74ae0ad0212c4555_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/61408cbc74ae0ad0212c4555">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Together 
+                </div>
+                <div class="year-duration">
+                    92 Min/2021 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/613cc317ac64a72958933d45_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/613cc317ac64a72958933d45">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Save the Last Dance 
+                </div>
+                <div class="year-duration">
+                    113 Min/2001 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/60226c87daebd616dc803e96_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/60226c87daebd616dc803e96">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    The Call of the Wild 
+                </div>
+                <div class="year-duration">
+                    100 Min/2020 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/613cc362529eb6229a7c29be_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/613cc362529eb6229a7c29be">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    Save the Last Dance 2 
+                </div>
+                <div class="year-duration">
+                    90 Min/2006 
+                </div>
+              </div>
+            </div>
+            
+            <div class="movie" style="background-image:url('https://img.timemovies.net/t/p/613c39ac53e2ac266b3b9a67_255_340_.jpg')">
+              <div class="shadow">
+                 <a href="/movie/613c39ac53e2ac266b3b9a67">
+     <img src="/assets/icons/play.png">
+    </a>
+              </div>
+              
+              <div class="info">
+                <div class="title">
+                    13 
+                </div>
+                <div class="year-duration">
+                    91 Min/2010 
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+      <div id="footer">
+        NarMovies • 2021 © All rights reserved
+        <div>Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.</div>
+      </div>
+      <script src="https://cdn.plyr.io/1.8.2/plyr.js"></script>
+      <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script> 
+      <script src="/assets/scripts/hls.js"></script>
+      <script src="/assets/scripts/scroll.js"></script>
+      <script src="/assets/scripts/search.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>NarMovies</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/list.css" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/1.8.2/plyr.css">
+</head>
+
+<body>
+  <div id="featured">
+    <div class="shadow">
+      <div id="header">
+        <div id="search-bar">
+          <img id="search-btn" src="/assets/icons/magnifying-glass.png" onclick="Search()"/>
+          <input type="text" id="search-input" required placeholder="بحث سريع" size="10" onfocus="this.placeholder = ''";
+                            this.value = ''" />
+        </div>
+        <ul>
+          <li><a href="">مسلسلات</a></li>
+          <li><a href="/home">الرئيسية</a></li>
+          <li><a href="/movies-list">أفلام</a></li>
+
+        </ul>
+        <img class="logo" src="/assets/icons/WHiteLogo.png" alt="" />
+      </div>
+    </div>
+  </div>
+  <div id="sub-body">
+    <div class="genres">
+      <a href="/movies-list?genre=خيال علمي">
+        <div class="genre">خيال علمي</div>
+      </a>
+      <a href="/movies-list?genre=عائلي">
+        <div class="genre">عائلي</div>
+      </a>
+      <a href="/movies-list?genre=كرتون">
+        <div class="genre">كرتون</div>
+      </a>
+      <a href="/movies-list?genre=كوميدي">
+        <div class="genre">كوميدي</div>
+      </a>
+      <a href="/movies-list?genre=تاريخي">
+        <div class="genre">تاريخي</div>
+      </a>
+      <a href="/movies-list?genre=حرب">
+        <div class="genre">حرب</div>
+      </a>
+      <a href="/movies-list?genre=جريمة">
+        <div class="genre">جريمة</div>
+      </a>
+      <a href="/movies-list?genre=غموض">
+        <div class="genre">غموض</div>
+      </a>
+      <a href="/movies-list?genre=اثارة">
+        <div class="genre">اثارة</div>
+      </a>
+      <a href="/movies-list?genre=دراما">
+        <div class="genre">دراما</div>
+      </a>
+      <a href="/movies-list?genre=مغامرة">
+        <div class="genre">مغامرة</div>
+      </a>
+      <a href="/movies-list?genre=اكشن">
+        <div class="genre">أكشن</div>
+      </a>
+      <a href="/movies-list">
+        <div class="genre">الكل</div>
+      </a>
+    </div>
+    <div id="movies-slider" class="movies-slider">
+      <% for (var i = 0; i < data.length ; i++) { %>
+      <div class="movie" style="background-image:url('<%= data[i]["poster"] %>')">
+        <div class="qual"><%= data[i]["ribbon"] %></div>
+        <div class="shadow">
+
+          <% if(data[i]["is_movie"]){ %>
+          <a href="<%= "/movie/" + data[i]["_id"]  %>">
+            <%}%>
+                  <% if(data[i]["is_movie"]== false){ %>
+            <a href="<%= "/serie/" + data[i]["_id"]  %>">
+              <%}%>
+                 <img src="/assets/icons/play.png" />
+                 <div class="movie-genres"><%= data[i]["genres"]["en"].slice(0 , 3).join(" • ") %>
+        </div>
+        </a>
+      </div>
+
+      <div class="info">
+        <div class="title">
+          <%= data[i]["title"]["en"] %>
+        </div>
+        <div class="year-duration">
+          <%= data[i]["length"] %>Min/ <%= data[i]["release_year"] %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <div class="pagination">
+    <% if(pages["firstPage"]){ %>
+    <a href=<%= pages["firstPage"]["url"]%>>
+      <<</a>
+        <% } %>
+        <% if(pages["firstPage"]){ %>
+        <a>...</a>
+        <% } %>
+        <% if(pages["previousPage"]){ %>
+        <a href=<%= pages["previousPage"]["url"]%>><%= pages["previousPage"]["index"]%></a>
+        <% } %>
+        <a class="currentPage" href=<%= pages["currentPage"]["url"]%>><%= pages["currentPage"]["index"]%></a>
+        <% if (pages["nextPage"]){ %>
+        <a href=<%= pages["nextPage"]["url"]%>><%= pages["nextPage"]["index"]%></a>
+        <% } %>
+        <% if(pages["lastPage"]){ %>
+        <a>...</a>
+        <% } %>
+        <% if(pages["lastPage"]){ %>
+        <a href=<%= pages["lastPage"]["url"]%>>>></a>
+        <% } %>
+  </div>
+  </div>
+
+  <div id="footer">
+    NarMovies • 2021 © All rights reserved
+    <div>Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.</div>
+  </div>
+  <script src="https://cdn.plyr.io/1.8.2/plyr.js"></script>
+  <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script>
+  <script src="/assets/hls.js"></script>
+  <script src="/assets/scripts/scroll.js"></script>
+  <script src="/assets/scripts/search.js"></script>
+</body>
+
+</html>

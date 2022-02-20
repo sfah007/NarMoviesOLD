@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "nodemon main.js"
+    "start": "node main.js"
   },
   "author": "",
   "license": "ISC",

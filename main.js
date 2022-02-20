@@ -230,5 +230,5 @@ app.get("*", function (req, res) {
   return res.send("404", 404);
 });
 
-const port = 8080;
+const port = 80;
 app.listen(port);

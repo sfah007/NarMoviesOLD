@@ -211,15 +211,18 @@ function Search(){
     results = [];
     searchTerm = req.query.q.replace(/ /g,'').toLowerCase()
     for (let i = 0; i < movies.length; i++) {
-      if (movies[i]["title"].replace(/ /g,'').toLowerCase().includes(searchTerm)) {
+      if (movies[i]["title"]["en"].replace(/ /g,'').toLowerCase().includes(searchTerm)) {
         results.push(movies[i]);
       }
     }
-    for (let i = 0; i < series.length; i++) {
-      if (series[i]["title"].replace(/ /g,'').toLowerCase().includes(searchTerm)) {
-        results.push(series[i]);
-      }
-    }
+    
+    //! the searching loop for series 
+    //TODO bring back when u scrape the series from the V3.2 API
+    // for (let i = 0; i < series.length; i++) {
+    //   if (series[i]["title"].replace(/ /g,'').toLowerCase().includes(searchTerm)) {
+    //     results.push(series[i]);
+    //   }
+    // }
     req.results = results;
     next();
   };
